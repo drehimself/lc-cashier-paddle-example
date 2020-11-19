@@ -43,5 +43,13 @@ Route::middleware(['auth:sanctum', 'verified', 'payingCustomer'])->get('/members
 })->name('members');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/charge', function () {
-    return view('charge');
+    $payLink = auth()->user()->chargeProduct(637164);
+
+    return view('charge', ['payLink' => $payLink]);
 })->name('charge');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/receipts', function () {
+    return view('receipts', [
+        'receipts' => auth()->user()->receipts,
+    ]);
+})->name('receipts');

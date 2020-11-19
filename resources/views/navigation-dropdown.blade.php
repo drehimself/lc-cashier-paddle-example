@@ -24,6 +24,9 @@
                     <x-jet-nav-link href="{{ route('charge') }}" :active="request()->routeIs('charge')">
                         Charge
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('receipts') }}" :active="request()->routeIs('receipts')">
+                        Receipts
+                    </x-jet-nav-link>
                 </div>
             </div>
 
